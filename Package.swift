@@ -16,11 +16,14 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.0.0"),
-        .package(url: "https://github.com/alchemy-swift/alchemy", .upToNextMinor(from: "0.1.0")),
+        .package(url: "https://github.com/alchemy-swift/papyrus", .branch("main")),
     ],
     targets: [
         .target(
             name: "PapyrusAlamofire",
-            dependencies: [.product(name: "Papyrus", package: "alchemy"), "Alamofire"]),
+            dependencies: [
+                .product(name: "Papyrus", package: "papyrus"),
+                .product(name: "Alamofire", package: "Alamofire")
+            ]),
     ]
 )

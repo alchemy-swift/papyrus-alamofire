@@ -55,7 +55,7 @@ extension Endpoint where Request == Papyrus.Empty {
 }
 
 extension DataRequest {
-    func handleResponse<Request: EndpointRequest,Response: Codable>(
+    func handleResponse<Request: RequestConvertible,Response: Codable>(
         endpoint: Endpoint<Request, Response>,
         completion: @escaping (AFDataResponse<Data?>, Result<Response, Error>) -> Void
     ) {
